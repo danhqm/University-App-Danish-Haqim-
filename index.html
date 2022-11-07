@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universities</title>
+    <script src="https://kit.fontawesome.com/b98a470eca.js" crossorigin="anonymous"></script>
+    <style>
+        /*For the background of the main form*/
+        *{
+          margin: 0;
+          padding: 0;  
+          font-family: 'Poppins', sans-serif;
+        }
+        .header{
+            min-height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(32, 41, 78, 0.7), rgba(33, 43, 85, 0.7)), url(https://images.ctfassets.net/2htm8llflwdx/7aFejSew5tPWcsZXMZ8Xtr/f1c69a6011354a87df453d084cb6eca5/Cleveland_State_University_Gallery_building.jpg?fit=thumb&w=1280&h=720);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1% 4%;
+        }
+        nav a{
+            color: #fff;
+            font-size: x-large;
+            text-decoration: none;
+        }
+        nav a span{
+            color: teal;
+        }
+        .nav-links{
+            flex: 1;
+            text-align: right;
+        }
+        .nav-links ul li{
+            display: inline-block;
+            margin: 5px;
+        }
+        .nav-links ul li a{
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .nav-links ul li a::after{
+            content: '';
+            display: block;
+            margin: auto;
+            height: 3px;
+            width: 0%;
+            background: teal;
+            transition: .6s;
+        }
+        .nav-links ul li a:hover:after{
+            width: 100%;
+        }
+        /*Creating a textbox for user to search for their universities*/
+        .text-box{
+            width: 90%;
+            color: white;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .text-box h1{
+            font-size: 45px;
+        }
+        .container{
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            background: #fff;
+            width: 600px;
+            height: 56px;
+            display: flex;
+        }
+        form input{
+            flex: 1;
+            border: none;
+            outline: none;
+        }
+        .container button{
+            background: teal;
+            padding: 20px 40px;
+            border: none;
+            outline: none;
+            color: #fff;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        form .fa-regular{
+            align-self: center;
+            padding: 1px 1px;
+            color: #fff;
+        }
+        /*This is where the output of the search input*/
+        .content-table{
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            margin-left: 37%;
+            margin-top: -10%;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        .content-table thead tr{
+            background-color: teal;
+            color: #fff;
+            text-align: left;
+            font-weight: bold;
+        }
+        .content-table th,
+        .content-table td{
+            padding: 12px 15px;
+            color: #fff;
+        }
+        .content-table tbody tr{
+            border-bottom: 1px solid teal;
+        }
+        .content-table tbody tr:last-of-type{
+            border-bottom: 2px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="search.html">Ed<span>spired</span></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="search.html">SUGGESTIONS</a></li>
+                    <li><a href="#" onclick="self.close();">EXIT</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="text-box">
+            <h1>Find Your University</h1>
+        </div>
+        <div class="container">
+            <form>
+            <i class="fa-regular fa-magnifying-glass"></i> 
+                <input type="text" placeholder="Search your university" id="universities_input">
+            </form>
+            <button onclick="buttonClicked()">Search</button>
+        </div>
+        <script src="uni.js"></script>
+        <script src="renderer.js"></script>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Web page</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div id="Name"></div></td>
+                    <td><div id="Web page"></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
